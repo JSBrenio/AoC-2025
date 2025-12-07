@@ -9,7 +9,7 @@ from copy import deepcopy
 dirs = [[-1,-1], [-1,0], [-1,1], [0,-1], [0,1], [1,-1], [1,0], [1,1]]
 grid = []
 result = 0
-with open('example.txt', 'r') as file:
+with open('input.txt', 'r') as file:
     for line in file:
         line = line.strip()
         # print(line)

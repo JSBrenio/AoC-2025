@@ -1,6 +1,6 @@
 input = []
 result = 0
-with open('example.txt', 'r') as file:
+with open('input.txt', 'r') as file:
     for line in file:
         line = line.strip()
         input.append([char for char in line])

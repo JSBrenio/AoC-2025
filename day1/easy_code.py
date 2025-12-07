@@ -1,5 +1,6 @@
 start = 50
-with open('example.txt', 'r') as file:
+zeros = 0
+with open('input.txt', 'r') as file:
     result = start
     for line in file:
         # print(line)
@@ -10,4 +11,8 @@ with open('example.txt', 'r') as file:
             result = (result - dist) % 100
         elif dir is "R":
             result = (result + dist) % 100
+        
+        if result == 0:
+            zeros += 1
         print(result)
+print(zeros)

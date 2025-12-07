@@ -1,4 +1,4 @@
-with open('example.txt', 'r') as file:
+with open('input.txt', 'r') as file:
     input = []
     result = 0
     for line in file:
