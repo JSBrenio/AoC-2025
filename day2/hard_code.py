@@ -1,0 +1,24 @@
+with open('input.txt', 'r') as file:
+    input = []
+    result = 0
+    for line in file:
+        input = line.split(',')
+    print(input) 
+    for ranges in input:
+        start = int(ranges.split('-')[0])
+        end = int(ranges.split('-')[1])
+        # print(start,end)
+        for i in range(start, end + 1):
+            # print(i)
+            word = str(i)
+            mid = len(word) // 2
+            if word[0:mid] == word[mid:]:
+                # print(word[0:mid], word[mid:])
+                result += i
+            # elegant substring pattern check, shoutout leetcode prob 459
+            # 123123 + 123123 = 123123123123
+            # if 123123 in 2312312312 = True
+            elif word in (word + word)[1:-1]:
+                result += i
+    
+    print(result)
