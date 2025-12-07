@@ -1,9 +1,8 @@
 ingrendientIdList = []
-availableIdList = []
-ingrendientIdSet = set()
+availableList = [] 
 result = 0
 
-with open('example.txt', 'r') as file:
+with open('input.txt', 'r') as file:
     lineBreakFlag = False
     for line in file:
         line = line.strip()
@@ -15,19 +14,21 @@ with open('example.txt', 'r') as file:
         if not lineBreakFlag:
             ingrendientIdList.append(line)
         else:
-            availableIdList.append(int(line))
+            availableList.append(int(line))
 
 print(ingrendientIdList)
-print(availableIdList)
+print(availableList)
 
-for ranges in ingrendientIdList:
-    start = int(ranges.split('-')[0])
-    end = int(ranges.split('-')[1])
-    for i in range(start, end + 1):
-        ingrendientIdSet.add(i)
-        
-for id in availableIdList:
-    if id in ingrendientIdSet:
-        result += 1
+while availableList:
+    found = False
+    id = availableList.pop()
+    # print(f"ID: {id}")
+    for ranges in ingrendientIdList:
+        start = int(ranges.split('-')[0])
+        end = int(ranges.split('-')[1])
+        # print(f"{start} - {end}")
+        if start <= id <= end:
+            result += 1
+            break
 
 print(result)
